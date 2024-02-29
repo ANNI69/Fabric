@@ -27,8 +27,15 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { SunIcon, MoonIcon } from "lucide-react";
+import ThemeButton from "./theme";
+import { useEffect } from "react";
 
 export default function Home() {
+  const [theme, setTheme] = React.useState("light"); // Default theme is set to 'light'
+  const toggleTheme = () => {
+    setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
+  };
+
   const navItems = [
     {
       name: "Home",
@@ -58,34 +65,40 @@ export default function Home() {
 
   return (
     <>
-      <div className="relative mt-40 w-full">
-        <FloatingNav navItems={navItems} />
-        <div className="relative flex justify-center m-20 p-30">
-          <Carousel className="w-full max-w-xs">
-            <CarouselContent>
-              {Array.from({ length: 5 }).map((_, index) => (
-                <CarouselItem key={index}>
-                  <div className="p-1">
-                    <Card>
-                      <CardContent className="flex aspect-square items-center justify-center p-6">
-                        <Image
-                          src={imageSrc[index]}
-                          alt={"Image"}
-                          width={300}
-                          height={300}
-                          objectFit="cover"
-                          className="rounded-lg"
-                        />
-                      </CardContent>
-                    </Card>
-                  </div>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-            <CarouselPrevious />
-            <CarouselNext />
-          </Carousel>
+      <div className="flex justify-end items-center mt-10 px-4 w-full">
+        <div className="flex space-x-4 items-center">
+          <div className="flex p-6">
+            <FloatingNav navItems={navItems} />
+          </div>
+          <ThemeButton />
         </div>
+      </div>
+
+      <div className="relative flex justify-center m-20 p-30">
+        <Carousel className="w-full max-w-xs">
+          <CarouselContent>
+            {Array.from({ length: 5 }).map((_, index) => (
+              <CarouselItem key={index}>
+                <div className="p-1">
+                  <Card>
+                    <CardContent className="flex aspect-square items-center justify-center p-6">
+                      <Image
+                        src={imageSrc[index]}
+                        alt={"Image"}
+                        width={300}
+                        height={300}
+                        objectFit="cover"
+                        className="rounded-lg"
+                      />
+                    </CardContent>
+                  </Card>
+                </div>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <CarouselPrevious />
+          <CarouselNext />
+        </Carousel>
       </div>
     </>
   );

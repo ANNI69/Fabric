@@ -3,11 +3,6 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: "Autos";
-  src: url("../assets/Automove.otf");
-}
-
-@font-face {
   font-family: "Gaela";
   src: url("../assets/GAELA.otf");
 }
