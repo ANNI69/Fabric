@@ -29,7 +29,6 @@ import {
 import { SunIcon, MoonIcon } from "lucide-react";
 
 export default function Home() {
-  
   const navItems = [
     {
       name: "Home",
@@ -61,8 +60,8 @@ export default function Home() {
     <>
       <div className="relative mt-40 w-full">
         <FloatingNav navItems={navItems} />
-        <div className="relative flex justify-center m-10 p-30">
-          <Carousel className="w-full max-w-xs ">
+        <div className="relative flex justify-center m-20 p-30">
+          <Carousel className="w-full max-w-xs">
             <CarouselContent>
               {Array.from({ length: 5 }).map((_, index) => (
                 <CarouselItem key={index}>
