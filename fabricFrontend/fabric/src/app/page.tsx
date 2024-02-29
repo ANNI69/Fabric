@@ -67,7 +67,7 @@ export default function Home() {
     <>
       <div className="flex justify-end items-center mt-10 px-4 w-full">
         <div className="flex space-x-4 items-center">
-          <div className="flex p-6">
+          <div className="flex p-7">
             <FloatingNav navItems={navItems} />
           </div>
           <ThemeButton />
