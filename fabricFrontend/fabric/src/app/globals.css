@@ -6,8 +6,19 @@
   font-family: "Auto";
   src: url("../assets/Automove.otf");
 }
+
+@font-face {
+  font-family: "Gaela";
+  src: url("../assets/GAELA.otf");
+}
+
+@font-face {
+  font-family: "Milk";
+  src: url("../assets/LEMONMILK-Bold.otf");
+}
  
 @layer base {
+  
   :root {
     --background: 0 0% 100%;
     --foreground: 224 71.4% 4.1%;

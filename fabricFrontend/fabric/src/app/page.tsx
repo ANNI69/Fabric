@@ -67,7 +67,7 @@ export default function Home() {
         <div className="relative  w-full"></div>
         <div className="flex flex-col items-center justify-center min-h-screen py-2">
           <h1 className="text-6xl font-mono"></h1>
-          <div className="flex space-x-4">
+          <div className="flex space-x-4 font-['Milk']">
             <button onClick={() => setTheme("light")}>Light</button>
             <button onClick={() => setTheme("dark")}>Dark</button>
           </div>
