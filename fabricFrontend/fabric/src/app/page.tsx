@@ -57,7 +57,6 @@ export default function Home() {
         "https://i.pinimg.com/564x/4b/00/18/4b0018f3d92dbd63f4062420e2e074d4.jpg",
     },
   ];
-  
 
   return (
     <>
@@ -73,9 +72,7 @@ export default function Home() {
           </div>
         </div>
         <div className="relative m-10 p-30">
-          <div className="h-screen py-20 w-full">
-            
-          </div>
+          <div className="h-screen py-20 w-full"></div>
         </div>
       </div>
     </>
