@@ -1,8 +1,8 @@
 import { LoginComp } from "@/components/ui/login";
-
+import "./page.css";
 export default function Login() {
     return (
-        <div className="flex justify-center items-center h-screen m-10">
+        <div id="login" className="flex justify-center items-center h-screen m-10">
            <LoginComp />
         </div>
     )

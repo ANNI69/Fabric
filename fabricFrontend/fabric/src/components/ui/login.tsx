@@ -35,7 +35,7 @@ export function LoginComp() {
     console.log("Login Form Data", formData);
     // Handle login logic here, such as calling an API to authenticate the user
     if(formData.email === "" || formData.password === "") {
-      toast("Error", {
+      toast.error("Error", {
         description: "Please fill all fields to login.",
         action: {
           label: "Okay",
@@ -44,7 +44,7 @@ export function LoginComp() {
       })
       return;
     }else{
-      toast("Success", {
+      toast.success("Success", {
         description: "Logged in successfully",
         action: {
           label: "Okay",
@@ -95,7 +95,7 @@ export function LoginComp() {
           <div className="flex justify-end items-center mt-4">
             <span className="text-sm">Don't have an account?</span>
             <a href="/register" className="text-sm text-primary-500">
-              Register here
+            {" "}Register here
             </a>
           </div>
         </CardContent>

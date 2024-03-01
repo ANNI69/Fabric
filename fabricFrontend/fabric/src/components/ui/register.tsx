@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { Button, buttonVariants } from "@/components/ui/button";
-import { toast } from "sonner"
+import { toast } from "sonner";
 
 import {
   Card,
@@ -23,7 +23,7 @@ export default function RegisterComp() {
     email: "",
     password: "",
   });
-  const [isSubmitted, setIsSubmitted] = useState(false); 
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleInputChange = (e: { target: { name: any; value: any } }) => {
     const { name, value } = e.target;
@@ -33,32 +33,31 @@ export default function RegisterComp() {
     }));
   };
 
-  const handleSubmit = async (e: { preventDefault: () => void; }) => {
+  const handleSubmit = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
     if (formData.email === "" || formData.password === "") {
-      toast("Please Fill All Fields", {
-        description: "ALL FIELDS ARE REQUIRED",
+      toast.error("Error", {
+        description: "Please fill all fields to create an account.",
         action: {
           label: "Okay",
           onClick: () => console.error("No Data"),
         },
-      })
+      });
       return;
-    }else{
+    } else {
       setIsSubmitted(true);
-      toast("Account Created", {
+      toast.success("Account Created", {
         description: "Account has been created successfully",
         action: {
           label: "Okay",
           onClick: () => {
             console.log("Account Created Successfully");
-          }
+          },
         },
-      })
+      });
     }
-
   };
-  
+
   return (
     <>
       <div className="flex flex-col items-center justify-center min-h-screen">
@@ -67,7 +66,7 @@ export default function RegisterComp() {
             href="/login"
             className="self-center mb-4 md:mb-0 md:self-auto absolute right-4 top-10 md:right-8 md:top-8"
           >
-           <Button variant="outline">Login</Button> 
+            <Button variant="outline">Login</Button>
           </Link>
           <div className="lg:p-8">
             <form
@@ -132,7 +131,6 @@ export default function RegisterComp() {
               </Card>
             </form>
           </div>
-          
         </div>
       </div>
     </>
