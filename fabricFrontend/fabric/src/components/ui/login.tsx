@@ -93,7 +93,7 @@ export function LoginComp() {
             </Button>
           </div>
           <div className="flex justify-end items-center mt-4">
-            <span className="text-sm">Don&apos;t have an account?</span>
+            <span className="text-sm">Dont have an account?</span>
             <a href="/register" className="text-sm text-primary-500">
             {" "}Register here
             </a>
