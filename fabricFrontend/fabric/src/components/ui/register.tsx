@@ -35,7 +35,11 @@ export default function RegisterComp() {
 
   const handleSubmit = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
-    if (formData.email === "" || formData.password === "") {
+    if (
+      formData.email === "" ||
+      formData.password === "" ||
+      formData.name === ""
+    ) {
       toast.error("Error", {
         description: "Please fill all fields to create an account.",
         action: {
@@ -43,16 +47,49 @@ export default function RegisterComp() {
           onClick: () => console.error("No Data"),
         },
       });
+      console.log(formData);
       return;
-    } else {
-      setIsSubmitted(true);
-      toast.success("Account Created", {
-        description: "Account has been created successfully",
+    }
+
+    try {
+      const response = await fetch("http://localhost:3001/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        const result = await response.json();
+        toast.success("Account Created", {
+          description: "Account has been created successfully",
+          action: {
+            label: "Okay",
+            onClick: () => {
+              console.log("Account Created Successfully", result);
+            },
+          },
+        });
+        setIsSubmitted(true);
+      } else {
+        const error = await response.json();
+        toast.error("Error", {
+          description:
+            error.message || "An error occurred while creating the account.",
+          action: {
+            label: "Okay",
+            onClick: () => console.error(error),
+          },
+        });
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      toast.error("Error", {
+        description: "An error occurred while communicating with the server.",
         action: {
           label: "Okay",
-          onClick: () => {
-            console.log("Account Created Successfully");
-          },
+          onClick: () => console.error(error),
         },
       });
     }
